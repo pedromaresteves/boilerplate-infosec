@@ -2,12 +2,12 @@ const express = require('express');
 const app = express();
 const helmet = require("helmet");
 
-app.use(helmet.hidePoweredBy());
-app.use(helmet.frameguard({ action: "deny" }));
-app.use(helmet.xssFilter());
-app.use(helmet.noSniff());
+app.use(helmet.hidePoweredBy()); //Hide this the app is powered by Express
+app.use(helmet.frameguard({ action: "deny" })); //Deny this app can be used in an iframe
+app.use(helmet.xssFilter()); //?Reduces? XSS attacks
+app.use(helmet.noSniff());  //Instructs the browser to not bypass the provided Content-Type
 app.use(helmet.ieNoOpen());
-
+app.use(helmet.hsts());
 
 
 
