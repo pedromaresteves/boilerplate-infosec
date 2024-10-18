@@ -10,7 +10,7 @@ app.use(helmet.noSniff());  //Instructs the browser to not bypass the provided C
 app.use(helmet.ieNoOpen());
 app.use(helmet.hsts({ maxAge: ninetyDaysInSeconds, force: true })); //Redirect http to https
 app.use(helmet.dnsPrefetchControl()); //Disable DNS Prefetching
-
+app.use(helmet.noCache()); //Disable browser caching
 
 
 
