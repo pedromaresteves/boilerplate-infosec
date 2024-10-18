@@ -8,7 +8,8 @@ app.use(helmet.frameguard({ action: "deny" })); //Deny this app can be used in a
 app.use(helmet.xssFilter()); //?Reduces? XSS attacks
 app.use(helmet.noSniff());  //Instructs the browser to not bypass the provided Content-Type
 app.use(helmet.ieNoOpen());
-app.use(helmet.hsts({ maxAge: ninetyDaysInSeconds, force: true }));
+app.use(helmet.hsts({ maxAge: ninetyDaysInSeconds, force: true })); //Redirect http to https
+app.use(helmet.dnsPrefetchControl()); //Disable DNS Prefetching
 
 
 
