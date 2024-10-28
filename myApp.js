@@ -11,7 +11,7 @@ app.use(helmet.ieNoOpen());
 app.use(helmet.hsts({ maxAge: ninetyDaysInSeconds, force: true })); //Redirect http to https
 app.use(helmet.dnsPrefetchControl()); //Disable DNS Prefetching
 app.use(helmet.noCache()); //Disable browser caching
-app.use(helmet.contentSecurityPolicy({ defaultSrc: ["'self'"], scriptSrc: ["'self'", "trusted-cdn.com"] })); //A powerful allow-list of what can happen on your page which mitigates many attacks
+app.use(helmet.contentSecurityPolicy({ directives: { defaultSrc: ["'self'"], scriptSrc: ["'self'", "trusted-cdn.com"] } })); //A powerful allow-list of what can happen on your page which mitigates many attacks
 
 
 
